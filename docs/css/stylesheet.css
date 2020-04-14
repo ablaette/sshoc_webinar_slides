@@ -1,0 +1,31 @@
+.gdbar img {
+  width: auto !important;
+  height: 65px !important;
+  margin: 8px 8px;
+}
+
+.gdbar {
+  width: auto !important;
+  height: 81px !important;
+}
+
+slides > slide:not(.nobackground):before {
+  width: 125px;
+  height: 41px;
+  padding-bottom: 20px;
+  background-size: 125px 41px;
+}
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+
+/* https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf */
+
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
