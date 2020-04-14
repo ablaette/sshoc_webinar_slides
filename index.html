@@ -1,133 +1,75 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Quanlify with Ease</title>
+    <title>Quanlify with ease: Combining quantitative and qualitative corpus analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Andreas Blaette" />
-    <meta name="date" content="2020-04-13" />
-    <link href="index_files/remark-css/default.css" rel="stylesheet" />
-    <link href="index_files/remark-css/metropolis.css" rel="stylesheet" />
-    <link href="index_files/remark-css/robot-fonts.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="index_files/remark-css-0.0.1/robot-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/polminify.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Quanlify with Ease
-## Quantity and Quality
+# Quanlify with ease: Combining quantitative and qualitative corpus analysis
 ### Andreas Blaette
-### April 13, 2020
+### April 13, 2020 (SSHOC webinar #2)
 
 ---
 
 
 
 
-## Problem Statement
+# Corpora everywhere. 
 
-There is no lack of algorithms! But ...
-
---
-
-* Acquisition of NLP techniques in ther social sciences &amp; humanities
+## But where do we stand?
 
 --
 
-* Tools of processing that scale well
+There is no lack ...
+
+- of algorithms
+- of ideas and projects on research data management (implementing FAIR data principles)
+
+But ...
 
 --
 
-* Availability of data for replication
+* Acquisition of NLP techniques in the social sciences &amp; humanities still piecemeal
 
 --
 
-* Reproducibility of data (getting FAIRER)
+* Tools for processing text that scale well are lacking
 
 --
 
-* Integration of quantitative and qualitative approaches to text
+* Availability of data for replication is missing 
 
+--
 
+* Reproducibility of data (getting FAIRER) is wanting
 
-???
-asdfasdf
+--
 
+* __Integration of quantitative and qualitative approaches to text is an unfulfilled promise__
 
 ---
-
-## Focus of the presentation
-
-- Combining close and distant and close reading [@Moretti2013] is an unfulfilled promise: Software often inhibits combining both perspectives. How to implement workflows for coding and annotating textual data?
-
-- Scenarios: 
-  - flexdashboards: 
-  - Shiny Modules: 
-  - Gradgets: Interactive graph annotation as an approach to generate intersubjectively shared interpretations/understandings of discourse patterns. 
-
-
-![](https://www.animatedimages.org/data/media/209/animated-cat-image-0077.gif)
-
----
-## A methodological divide?
-
-.pull-left[
-
-### Quantity
-
-- Natural Language Processing (NLP)
-- Big Data
-- Data Mining
-- Text Mining
-- Machine Learning (ML)
-- Artificial Intelligence (KI)
-- Text as Data
-]
-
---
-
-.pull-right[
-### Quality
-
-- eHumanities / Digital Humanities
-- Corpus Linguistics 
-- Computational Linguistics
-- Interpretation
-]
-
-
---
-
-.center[We Shall Overcome ... By Quanlification]
-
-???
-
-The world is one great battlefield,
-With forces all arrayed;
-If in my heart I do not yield,
-I'll overcome some day. 
-
----
-
-class: inverse
-
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-
-
+background-image: url(img/Bergbau_Sabine_Wahlen.jpg)
+background-size: cover
+class: nobackground, inverse
 
 # PolMine Project
 ## Data and Code for Corpus Analysis
 
 ---
 
-## The PolMine Project | www.polmine.de
+# www.polmine.de
+
+## The PolMine Project
+
+--
 
 - __Research__&lt;/br&gt;
   On migration &amp; integration policy: MigTex, MIDEM, PopParl
@@ -154,27 +96,30 @@ _Learn more: www.polmine.de_
 
 ---
 
-## The PolMine Project R Packages
+# The hacky days shall be over
+
+## Wrapping consolidated code into R packages
 
 --
 
-### The core package family living at CRAN
+### Core packages published at CRAN
 
-- *polmineR*: elementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
-
-- *cwbtools*: tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
-
-- *RcppCWB*: wrapper for the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
+- *polmineR*: Wlementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
+- *RcppCWB*: R Wrapper for the C Code of the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
+- *cwbtools*: Tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
 
 --
 
 ### A toolchain for corpus preparation
 
 - *frapp*: Framework for Parsing Plenary Protocols
-- *bignlp*: Fast NLP processing for big corpora
-- *biglda*: Fast LDA topic modelling
-- *ctk*: corpus toolkit (misc functionality for corpus preparation)
+- *bignlp*: Fast NLP processing for big corpora (interfacing to Stanford CoreNLP)
+- *biglda*: Fast LDA topic modelling (interfacing to MALLET)
+- *ctk*: Corpus toolkit (misc functionality for corpus preparation)
 
+--
+
+Ensuring quality: Continuous integration (CI), moving to test-driven development, improving code coverage 
 
 ???
 
@@ -197,105 +142,139 @@ _Learn more: www.polmine.de_
 
 ---
 
-## Data
+# Towards a data-rich future
 
 ### Corpora of Plenary Protocols
 
-- *GermaParl*: German Bundestag, regional parliaments ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3742113.svg)
-- *UNGA* ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3748858.svg)
-- *ParisParl* / *AustroParl* / *TweedeKamer*:
-- *MigParl*
+- **GermaParl**: Corpus of the German Bundestag, regional parliaments ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3742113.svg)
+- **UNGA** Verbatim Records of the United Nations General Assembly ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3748858.svg)
+- **ParisParl** (French Assemblé Nationale) / **AustroParl** (Austria's Nationalrat) / **TweedeKamer** (Dutch Tweede Kamer Staten-General)
+- **MigParl**: Debates on migration and integration in Germany's Regional Parliaments
+
+*cp. ParlaCLARIN-Workshops, work towards a TEI-style standardization*
+
+--
 
 ### Other Corpora
 
-- *MigPress*
+- **MigPress**: Corpus of reports on migration and integration in Süddeutsche Zeitung und Frankfurter Allgemeine Zeitung (2000-2019)
 
+--
+
+### Dissemination
+
+- Git repositories for TEI-XML
+- Open science repository Zenodo for indexed corpora
 
 ---
 
-## aasdfasdf
+# polmineR - the People's Corpus Miner 
 
-- Prerequisites: Any kind of computer, installation of R/RStudio
+--
+
+- Prerequisites: 
+  - Any kind of computer that still has keys (Windows, Linux, macOS)
+  - Installation of R/RStudio
+
+--
+
+- Three lines of code will get you polmineR and GermaParl (or any other corpus)
 
 
 ```r
 install.packages("polmineR")
-install.packages("GermaParl") # the downloaded package includes a small sample dataset
-GermaParl::germaparl_download_corpus() # get the full corpus
+install.packages("GermaParl") # includes small sample dataset
+GermaParl::germaparl_download_corpus() # get the full corpus (1 GB)
 ```
 
-asdf
-
 --
+
+- Start your inquiry
 
 
 ```r
 library(polmineR)
-kwic("GERMAPARL", query = "Integration") # activate the corpora in the GermaParl package, i.e. GERMAPARL
+count("GERMAPARL", query = "Europa")
+kwic("GERMAPARL", query = "Europa")
 ```
+
+- Installation options: Run R, RStudio, OpenCPU on server (remote corpus access)
+
+
+
+---
+
+background-image: url(img/Le_Penseur_min.jpg)
+background-size: cover
+class: nobackground, inverse
+
+# Theory is Code
+## The "quanlification" frontier
+
+---
+
+# From text to numbers
+
+## The idea of "distant reading"
+
+- "[…] the trouble with close reading […] is that it necessarily depends on an extremely small canon. […] what we really need is a little pact with the devil: we know how to read texts, so now let‘s learn how not to read them. Distant reading, where distance, let me repeat is, is a condition of knowledge. It allows you to focus on units that are much smaller or much larger than the text: devices, themes, types – or genres and systems. And if, between the very small and the very large, the text itself disappears, well, this is one of the cases where one can justifiably say, Less is more.“ (Moretti [2000] 2013: 49)
+
+
+## The "text as data" movement:
+
+- scaling party positions (wordscore and wordfish) as a driver
+-"[…] while our method is designed to analyse the content of a text, it is not necessary for an analyst using the technique to understand, or even read, the texts to which the technique is applied. " (Laver, Benoit &amp; Garry 2003)
+
+
+---
+
+# Text + Numbers = Quanlification
+
+## An obsolete methodological divide?
 
 --
 
+.pull-left[
 
-```r
-drat::addRepo("polmine")
-install.packages("UNGA")
-UNGA::unga_download_corpus()
-```
+### Quantity
 
+- Text as Data
+- Natural Language Processing (NLP)
+- Data / Text Mining
+- Machine Learning (ML)
+- "Validate, validate, validate" (Grimmer et al. 2013)
+]
 
+--
 
----
-class:inverse
+.pull-right[
+### Quality
+- eHumanities / Digital Humanities
+- Corpus Linguistics 
+- Computational Linguistics
+- "blended reading" (Stulpe, Lemke 2015), "scalable reading" (Weitin 2017) &amp; related concepts
+]
 
-# Theory is Code
-## Ideas behind "quanlification"
+--
 
----
+### Quanlification
 
+- Epistemological disputes notwithstanding: The necessity to combine qualitative and quantitative approaches to text is conceptually undisputed.
 
-## From text to numbers {.smaller}
+- Software inhibits combining quantity and quality: Tools are there, but setting up a quanlitative project is expensive: Difficult without a dedicated software engineer
 
-- __from computer-assisted content analysis to "text as data"__&lt;br/&gt;
-  scaling party positions as a driver (wordscore and wordfish)
-- __joyful blasphemy agains reading ...__&lt;br/&gt;"[…]because it treats words simply as data rather than requiring any knowledge of their meaning as used in the text, our word scoring method works irrespective of the language in which the texts are written. In other words, while our method is designed to analyse the content of a text, it is not necessary for an analyst using the technique to understand, or even read, the texts to which the technique is applied. The primary advantage of this feature is that the technique can be applied to texts in any language." (Laver, Benoit &amp; Garry 2003)
-- __common methods and applications__
-  - sentiment analyses
-  - topic modelling (unsupervised learning)
-  - classification (cp. Comparative Agendas Project / CAP)
-- __"Validate, validate, validate" (Grimmer et al. 2013)__&lt;br/&gt;An (almost) unheard plea
-
----
-
-## The idea of "distant reading" {.smaller}
-
-„[…] the trouble with close reading […] is that it necessarily depends on an extremely small canon. […] you invest in individual texts so much only if you think that very few of them really matter. […] if you want to look beyond the canon […], close reading will not do it. […] At the bottom it‘s a theological exercise – very solemn treatment of very few texts taken very seriously – whereas what we really need is a little pact with the devil: we know how to read texts, so now let‘s learn how not to read them. Distant reading, where distance, let me repeat is, is a condition of knowledge. It allows you to focus on units that are much smaller or much larger than the text: devices, themes, types – or genres and systems. And if, between the very small and the very large, the text itself disappears, well, this is one of the cases where one can justifiably say, Less is more. If we want to understand the system in its entirety, we must accept loosing something. We always pay a price for theoretical knowledge; concepts are abstract, are poor. But it‘s precisely this poverty that makes it possible to handle them, and therefore to know.  This is why less is actually more.“ (Moretti [2000] 2013: 49)
 
 ---
 
-## Why and how text matters {.smaller}
+# Verbs and nouns for corpus analysis
 
-- __The social sciences and the "linguistic turn"__
-  - An evolving theoretical movement
-  - analysing discourse
-  - analysing frames
-  - analysing narratives
-- __Methodological development__
-  - persistence of paper &amp; pencil-analyses
-  - computer-assisted qualitative analysis (QDA, see MAXQDA, Atlas.ti)
-  - digital humanities / eHumanities
-  - Visual analytics
-- __Varieties of "distant reading" (Moretti 2000)__
-  - "blended reading" (Stulpe, Lemke 2015)
-  - "scalable reading" (Weitin 2017)
-
----
-
-## polmineR - a basic vocabulary {.smaller}
+## polmineR: A basic vocabulary for quanlification
 
 - __Corpora and subcorpora__
   - corpus objects: *corpus()*
   - subsetting corpora: *partition()* / *subset()*
+
+--
 
 - __Quantification__
   - counting: *hits()*, *count()*, *dispersion()* (and *size()*)
@@ -303,111 +282,159 @@ class:inverse
   - feature extraction: *features()*
   - term-document-matrices: *as.sparseMatrix()*, *as.TermDocumentMatrix()*
 
+--
+
 - __Qualitative analysis__
-  - Keywords-in-context/concordances: *kwic()*
+  - Keywords-in-context / concordances: *kwic()*
   - full text (of a subcorpus): *get_token_stream()*, *as.markdown()*, *as.html()*, *read()*
 
 ---
-
-### The Quanlification Familiy
-
-- *annolite*: light-weight full text display and annotation tool
-- *topicanalysis*: integrate quantitative/qualitative approaches to topic models
-- *gradget*: graph annotation widget
-- *fulltext*: htmlwideget
-- *quanlify*: ddd
+background-image: url(img/Nerd.jpg)
+background-size: cover
+class: nobackground, inverse
 
 
-
-
---- 
-
-class: inverse
-
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-
-
-
-# Scenario I
-## Interactive KWIC Tables
+# Implementing Quanlification 
+## Let's Get Things Done
 
 ---
 
-class: inverse
-
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-
-
-
-# Scenario II
-## Flexdashboards for Digging into LDA Topic Models
-
----
+# Reading Anywhere: 'fulltext' htmlwidget
 
 ## Problem Statement
 
-asdfasdf
+- **Read Anything:** Cooccurrences, concordances, subcorpora, topic models - there are many different scenarios when you 
+- **Read Anywhere:** Include fulltext output into (html) documents and slides, and in GUIs
+
+
+## Implementation
+
+- polmineR vocabulary: Implementation of a `read()`-method
+- GUI: Package 'fulltext' that renders input data into an "htmlwidget" (a truly flexible device)
+
+## Demonstration
+
+- HTML documents with scrollable fulltext [click here for an example](file:///Users/andreasblaette/Lab/github/fulltext/docs/articles/vignette.html#from-a-subcorpus-to-fulltext)
+- Slides with `fulltext` htmlwidget [click here for an example](https://polmine.github.io/gallery/crosstalk_ioslides.html#1)
+- polmineR shiny App [click here for an example]()
+
 
 ---
 
-class: inverse
+# Highlighting and Tooltipping
 
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
+## Problem Statement
+
+- **Highlighting with multiple colors:** The statistical analysis of text yields variable dictionaries with word weights - visualising multiple dictionaries at the same time will help to gather the semantic sense of numeric analyses
+- **Tooltipping :** Colors alone may be misleading. Show numeric information on demand
 
 
+## Implementation
 
-# Scenario III
-## Graph Annotation Widgets: Gradgets
+- polmineR level: Implementation of methods `highlight()` and `tooltips()`
+- GUI: Enrich input data for htmlwidgets and amend CSS
+
+## Demonstration
+
+- Validating sentiment analyses with interactive KWIC tables [example]()
+- Evaluate topic models with flexdashboard [example]()
+- Understanding the data behind cooccurrence graphs [example](https://polmine.github.io/gcdh_slides/widget_3.html)
 
 ---
 
-## Problem: The elusive merit of cooccurrence graphs
 
-* Popularity of cooccurrence graphs [@Rhizome2013; @2016TMid].
+# Annotation
 
-- Suggestive visualisations ... But are these interpretations sound and do they meet standards of intersubjectivity? 
-  - The graph layout depends heavily on filter decisions.
-  - Filtering is necessary, but there are difficulties to justify filter decisions. 
-  - Graph visualisation implies many possibilities to provide extra information, but there are perils of information overload.
-  - If we try to omit filter decisions, we run into the problem of overwhelming complexity of large graphs.
-  - How to handle the complexity and create the foundations for intersubjectivity? 
+## Problem Statement
+
+- **Annotation and intersubjectivity**: In the qualitative research tradition, annotations are a means to communicate evaluative decisions to other researchers
+- **Annotation and machine learning** Annotations (generating labelled data) are a precondition for machine learning
 
 
-## Gradgets
+## Implementation
 
-So 'gradgets' are the solution suggested here.  The links to the following three gradgets offer a visualisation that is interactive in a double sense:
+- polmineR level: Implementation of `edit()`-methods 
+- Htmlwidget with annotation functionality (different from `fulltext` htmlwidget, as it returns values)
 
-(a) You can turn the visualisation in three-dimensional space
-(b) You can click on the edges and nodes, get the concordances that are behind the statistical evaluation, and leave an annotation.
+## Demonstration
 
-In a real-world workflow, the result of the graph annotation exercise can be stored and put into an online appendix to a publication that explains interpretative results.
+- Annotate any class inheriting from the `textstat` class (i.e. tables - kwic, cooccurrences, features)
+- Simple text annotation with the `annolite` package
+- Annotate cooccurrence graphs [example](https://polmine.github.io/gcdh_slides/widget_3.html)
 
-So these are the gradgets:
+---
 
-* [threedimensional gradget I](https://polmine.github.io/gcdh_slides/widget_1.html)
-* [threedimensional, anaglyph gradget II](https://polmine.github.io/gcdh_slides/widget_2.html)
-* [threedimensional, anaglyph gradget III (restrictive filtering)](https://polmine.github.io/gcdh_slides/widget_3.html)
+# Annotation
+
+- Code Example: Annotate a cooccurrences object
+
+
+```r
+library(polmineR)
+s &lt;- cooccurrences("UNGA", "sustainability") # could also be kwic etc.
+annotations(s) &lt;- list(name = "annotation", what = "")
+edit(s)
+```
+
+- Code Example: Annotate fulltext
+
+
+```r
+library(polmineR)
+library(annolite) # at github.com/PolMine/annolite, dev-branch
+
+data &lt;- corpus("GERMAPARLMINI") %&gt;%
+  subset(speaker == "Volker Kauder") %&gt;% 
+  subset(date == "2009-11-10") %&gt;%
+  as("partition") %&gt;%
+  as.fulltextdata(headline = "Volker Kauder (CDU)")
+anno &lt;- annotate(data)
+```
+
+---
+
+# The Making of a Quanlification Toolset
+
+## Conscious Uncoupling and Modularization
+
+- [*fulltext*](https://github.com/PolMine/fulltext):&lt;br/&gt;Toolset to generate fulltext display from corpus data
+
+- [*gradget*](https://github.com/PolMine/gradget):&lt;br/&gt;Graph annotation widget
+
+- [*annolite*](https://github.com/PolMine/annolite):&lt;br/&gt;Leightweight Fulltext Display and Annotation Tools
+
+- [*topicanalysis*](https://github.com/PolMine/topicanalysis):&lt;br/&gt;Auxiliary functions for topicmodelling.
+
+- [*quanlify*](https://github.com/PolMine/quanlify):&lt;br&gt;Toolset for the qualitative validation of quantitative text analysis
+
+**Beware! All of this is experimental!**
+
+
+---
+
+# Discussion. Frontier.
+
+## Vision
+
+- Offer a very flexible set of tools to implement all kinds of workflows that entail distant and close reading with minimal cost
+- A **l**eightweight **i**nfrastructure for the **qu**anlitat**i**ve analysis of text **d**ata ("liquid")
+
+--
+
+## Inspiration from the Unix philosophy
+
+- keep it simple, stupid (KISS)
+- parsimony (leave as much as possible to existing libraries)
+- modularity (identify independent building blocks and develop them soundly)
+
+--
+
+## Discussion Points
+
+- Alternative approaches, relevant previous work
+- How much GUI is needed?
+- Toolset of framework?
+- Towards a people's framework for quanlification?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

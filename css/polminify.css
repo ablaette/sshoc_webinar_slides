@@ -25,11 +25,18 @@ hr, .title-slide h2::after, .mline h1::after {
 
 .inverse {
   background-color: #6B84AC;
+  border-top: 0px !important;
   color: #ffffff;
   /* text-shadow: 0 0 20px #333; */
 }
 
+
+.inverse h1{
+  margin-top: 425px;
+}
+
 .title-slide h1 {
+    margin-top: 100px;
     color: #efefef;
 }
 
@@ -41,8 +48,17 @@ hr, .title-slide h2::after, .mline h1::after {
     color: #efefef;
 }
 
+.white{
+  background-color: #ffffff !important;
+}
 
 h1 {
   margin-top: -95px;
+  color: #efefef;
   text-align: left;
+}
+
+.smallpic{
+  width: 2500px;
+  height: 180px
 }
