@@ -1,0 +1,47 @@
+
+
+
+
+
+
+## The elusive merit of cooccurrence graphs
+
+* Cooccurrence graphs are an eye-catcher and have become a popular analytical approach in the eHumanities [@Rhizome2013; @2016TMid].
+
+* The visualisations are very suggestive and seem to be a great condensation of ideas we have about discourse.
+
+* But are these interpretations sound and do they meet standards of intersubjectivity? 
+
+* To start will, I will indicate that there are many choices behind these visualisations that can be contested.
+
+* The solution I suggest is to work with three-dimensional, interactive graph visualisations that can be annotated (called gradgets, for graph annotation widgets). 
+
+- The graph layout depends heavily on filter decisions.
+
+- Filtering is necessary, but there are difficulties to justify filter decisions.
+
+- Graph visualisation implies many possibilities to provide extra information, but there are perils of information overload.
+
+- If we try to omit filter decisions, we run into the problem of overwhelming complexity of large graphs.
+
+- How to handle the complexity and create the foundations for intersubjectivity? 
+
+
+## Gradgets
+
+So 'gradgets' are the solution suggested here.  The links to the following three gradgets offer a visualisation that is interactive in a double sense:
+
+(a) You can turn the visualisation in three-dimensional space
+(b) You can click on the edges and nodes, get the concordances that are behind the statistical evaluation, and leave an annotation.
+
+In a real-world workflow, the result of the graph annotation exercise can be stored and put into an online appendix to a publication that explains interpretative results.
+
+So these are the gradgets:
+
+* [threedimensional gradget I](https://polmine.github.io/gcdh_slides/widget_1.html)
+* [threedimensional, anaglyph gradget II](https://polmine.github.io/gcdh_slides/widget_2.html)
+* [threedimensional, anaglyph gradget III (restrictive filtering)](https://polmine.github.io/gcdh_slides/widget_3.html)
+
+
+
+

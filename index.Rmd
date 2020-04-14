@@ -1,0 +1,401 @@
+---
+title: "Quanlify with Ease"
+subtitle: 'Quantity and Quality'
+author: "Andreas Blaette"
+date: "April 13, 2020"
+output: 
+  xaringan::moon_reader:
+    css: [default, metropolis, robot-fonts, './css/polminify.css']
+    nature:
+      countIncrementalSlides: false
+editor_options:
+  chunk_output_type: console
+bibliography: literature.bib
+---
+
+```{r load_packages, message = FALSE, warning = FALSE, include = FALSE} 
+library(fontawesome)
+```
+
+## Problem Statement
+
+There is no lack of algorithms! But ...
+
+--
+
+* Acquisition of NLP techniques in ther social sciences & humanities
+
+--
+
+* Tools of processing that scale well
+
+--
+
+* Availability of data for replication
+
+--
+
+* Reproducibility of data (getting FAIRER)
+
+--
+
+* Integration of quantitative and qualitative approaches to text
+
+
+
+???
+asdfasdf
+
+
+---
+
+## Focus of the presentation
+
+- Combining close and distant and close reading [@Moretti2013] is an unfulfilled promise: Software often inhibits combining both perspectives. How to implement workflows for coding and annotating textual data?
+
+- Scenarios: 
+  - flexdashboards: 
+  - Shiny Modules: 
+  - Gradgets: Interactive graph annotation as an approach to generate intersubjectively shared interpretations/understandings of discourse patterns. 
+
+
+![](https://www.animatedimages.org/data/media/209/animated-cat-image-0077.gif)
+
+---
+## A methodological divide?
+
+.pull-left[
+
+### Quantity
+
+- Natural Language Processing (NLP)
+- Big Data
+- Data Mining
+- Text Mining
+- Machine Learning (ML)
+- Artificial Intelligence (KI)
+- Text as Data
+]
+
+--
+
+.pull-right[
+### Quality
+
+- eHumanities / Digital Humanities
+- Corpus Linguistics 
+- Computational Linguistics
+- Interpretation
+]
+
+
+--
+
+.center[We Shall Overcome ... By Quanlification]
+
+???
+
+The world is one great battlefield,
+With forces all arrayed;
+If in my heart I do not yield,
+I'll overcome some day. 
+
+---
+
+class: inverse
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+# PolMine Project
+## Data and Code for Corpus Analysis
+
+---
+
+## The PolMine Project | www.polmine.de
+
+- __Research__</br>
+  On migration & integration policy: MigTex, MIDEM, PopParl
+
+--
+- __Data__</br>
+  Corpora of plenary protocols, Newspaper articles, ...
+
+--
+- __Code__</br>
+  open source R packages for text analysis, at CRAN & GitHub
+
+--
+- __Tutorials__</br>
+  Using Corpora in Social Science Research / UCSSR
+
+--
+- __Centre__</br>
+  CLARIN Centre category C, prospectively part of NFDI
+
+<br/>
+--
+_Learn more: www.polmine.de_
+
+---
+
+## The PolMine Project R Packages
+
+--
+
+### The core package family living at CRAN
+
+- *polmineR*: elementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
+
+- *cwbtools*: tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
+
+- *RcppCWB*: wrapper for the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
+
+--
+
+### A toolchain for corpus preparation
+
+- *frapp*: Framework for Parsing Plenary Protocols
+- *bignlp*: Fast NLP processing for big corpora
+- *biglda*: Fast LDA topic modelling
+- *ctk*: corpus toolkit (misc functionality for corpus preparation)
+
+
+???
+
+### Why R?
+
+- the most common programming language in the social sciences
+- comprehensive availability of statistical methods
+- great visualisation capabilities
+- usability: RStudio as IDE
+- reproducible research: R Markdown notebooks
+
+### Why the Corpus Workbench (CWB)?
+
+- a classic toolset for corpus analysis
+- indexing and compression of corpora => performance
+- powerful and versatile syntax of the Corpus Query Processor (CQP)
+- permissive license (GPL)
+
+
+
+---
+
+## Data
+
+### Corpora of Plenary Protocols
+
+- *GermaParl*: German Bundestag, regional parliaments ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3742113.svg)
+- *UNGA* ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3748858.svg)
+- *ParisParl* / *AustroParl* / *TweedeKamer*:
+- *MigParl*
+
+### Other Corpora
+
+- *MigPress*
+
+
+---
+
+## aasdfasdf
+
+- Prerequisites: Any kind of computer, installation of R/RStudio
+
+```{r polmineR_installation, eval = FALSE, message = FALSE}
+install.packages("polmineR")
+install.packages("GermaParl") # the downloaded package includes a small sample dataset
+GermaParl::germaparl_download_corpus() # get the full corpus
+```
+
+asdf
+
+--
+
+```{r germaparl, eval = FALSE}
+library(polmineR)
+kwic("GERMAPARL", query = "Integration") # activate the corpora in the GermaParl package, i.e. GERMAPARL
+```
+
+--
+
+```{r install_corpus, eval = FALSE}
+drat::addRepo("polmine")
+install.packages("UNGA")
+UNGA::unga_download_corpus()
+```
+
+
+
+---
+class:inverse
+
+# Theory is Code
+## Ideas behind "quanlification"
+
+---
+
+
+## From text to numbers {.smaller}
+
+- __from computer-assisted content analysis to "text as data"__<br/>
+  scaling party positions as a driver (wordscore and wordfish)
+- __joyful blasphemy agains reading ...__<br/>"[…]because it treats words simply as data rather than requiring any knowledge of their meaning as used in the text, our word scoring method works irrespective of the language in which the texts are written. In other words, while our method is designed to analyse the content of a text, it is not necessary for an analyst using the technique to understand, or even read, the texts to which the technique is applied. The primary advantage of this feature is that the technique can be applied to texts in any language." (Laver, Benoit & Garry 2003)
+- __common methods and applications__
+  - sentiment analyses
+  - topic modelling (unsupervised learning)
+  - classification (cp. Comparative Agendas Project / CAP)
+- __"Validate, validate, validate" (Grimmer et al. 2013)__<br/>An (almost) unheard plea
+
+---
+
+## The idea of "distant reading" {.smaller}
+
+„[…] the trouble with close reading […] is that it necessarily depends on an extremely small canon. […] you invest in individual texts so much only if you think that very few of them really matter. […] if you want to look beyond the canon […], close reading will not do it. […] At the bottom it‘s a theological exercise – very solemn treatment of very few texts taken very seriously – whereas what we really need is a little pact with the devil: we know how to read texts, so now let‘s learn how not to read them. Distant reading, where distance, let me repeat is, is a condition of knowledge. It allows you to focus on units that are much smaller or much larger than the text: devices, themes, types – or genres and systems. And if, between the very small and the very large, the text itself disappears, well, this is one of the cases where one can justifiably say, Less is more. If we want to understand the system in its entirety, we must accept loosing something. We always pay a price for theoretical knowledge; concepts are abstract, are poor. But it‘s precisely this poverty that makes it possible to handle them, and therefore to know.  This is why less is actually more.“ (Moretti [2000] 2013: 49)
+
+---
+
+## Why and how text matters {.smaller}
+
+- __The social sciences and the "linguistic turn"__
+  - An evolving theoretical movement
+  - analysing discourse
+  - analysing frames
+  - analysing narratives
+- __Methodological development__
+  - persistence of paper & pencil-analyses
+  - computer-assisted qualitative analysis (QDA, see MAXQDA, Atlas.ti)
+  - digital humanities / eHumanities
+  - Visual analytics
+- __Varieties of "distant reading" (Moretti 2000)__
+  - "blended reading" (Stulpe, Lemke 2015)
+  - "scalable reading" (Weitin 2017)
+
+---
+
+## polmineR - a basic vocabulary {.smaller}
+
+- __Corpora and subcorpora__
+  - corpus objects: *corpus()*
+  - subsetting corpora: *partition()* / *subset()*
+
+- __Quantification__
+  - counting: *hits()*, *count()*, *dispersion()* (and *size()*)
+  - cooccurrences: *cooccuurrences()*, *Cooccurrences()*
+  - feature extraction: *features()*
+  - term-document-matrices: *as.sparseMatrix()*, *as.TermDocumentMatrix()*
+
+- __Qualitative analysis__
+  - Keywords-in-context/concordances: *kwic()*
+  - full text (of a subcorpus): *get_token_stream()*, *as.markdown()*, *as.html()*, *read()*
+
+---
+
+### The Quanlification Familiy
+
+- *annolite*: light-weight full text display and annotation tool
+- *topicanalysis*: integrate quantitative/qualitative approaches to topic models
+- *gradget*: graph annotation widget
+- *fulltext*: htmlwideget
+- *quanlify*: ddd
+
+
+
+
+--- 
+
+class: inverse
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+# Scenario I
+## Interactive KWIC Tables
+
+---
+
+class: inverse
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+# Scenario II
+## Flexdashboards for Digging into LDA Topic Models
+
+---
+
+## Problem Statement
+
+asdfasdf
+
+---
+
+class: inverse
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+# Scenario III
+## Graph Annotation Widgets: Gradgets
+
+---
+
+## Problem: The elusive merit of cooccurrence graphs
+
+* Popularity of cooccurrence graphs [@Rhizome2013; @2016TMid].
+
+- Suggestive visualisations ... But are these interpretations sound and do they meet standards of intersubjectivity? 
+  - The graph layout depends heavily on filter decisions.
+  - Filtering is necessary, but there are difficulties to justify filter decisions. 
+  - Graph visualisation implies many possibilities to provide extra information, but there are perils of information overload.
+  - If we try to omit filter decisions, we run into the problem of overwhelming complexity of large graphs.
+  - How to handle the complexity and create the foundations for intersubjectivity? 
+
+
+## Gradgets
+
+So 'gradgets' are the solution suggested here.  The links to the following three gradgets offer a visualisation that is interactive in a double sense:
+
+(a) You can turn the visualisation in three-dimensional space
+(b) You can click on the edges and nodes, get the concordances that are behind the statistical evaluation, and leave an annotation.
+
+In a real-world workflow, the result of the graph annotation exercise can be stored and put into an online appendix to a publication that explains interpretative results.
+
+So these are the gradgets:
+
+* [threedimensional gradget I](https://polmine.github.io/gcdh_slides/widget_1.html)
+* [threedimensional, anaglyph gradget II](https://polmine.github.io/gcdh_slides/widget_2.html)
+* [threedimensional, anaglyph gradget III (restrictive filtering)](https://polmine.github.io/gcdh_slides/widget_3.html)
+
