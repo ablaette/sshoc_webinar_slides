@@ -1,0 +1,77 @@
+---
+title: "R Markdown and ioslides"
+subtitle: "Embedding fulltext htmlwidgets"
+author: "Andreas Blaette"
+output:
+  ioslides_presentation:
+    self_contained: FALSE
+---
+
+```{r cars, echo = TRUE, message = FALSE, echo = FALSE}
+library(fulltext)
+library(polmineR)
+```
+
+```{r echo = TRUE, message = FALSE, echo = FALSE}
+ftxt <- corpus("GERMAPARLMINI") %>%
+  subset(speaker == "Volker Kauder") %>%
+  subset(date == "2009-11-10") %>%
+  as.fulltexttable(headline = "Volker Kauder (CDU)", display = "block") %>%
+  fulltext(box = TRUE)
+```
+
+
+## Fulltext Output in Slides {.smaller}
+
+```{r, message = FALSE, echo = FALSE}
+library(widgetframe)
+knitr::opts_chunk$set(widgetframe_widgetsdir = 'widgets')
+```
+
+```{r, echo = FALSE}
+frameWidget(ftxt)
+```
+
+## Crosstalk: Table and fulltext htmlwidget
+
+```{r, echo = FALSE}
+speeches <- corpus("GERMAPARLMINI") %>%
+  subset(date == "2009-11-10") %>%
+  as.speeches(s_attribute_name = "speaker", verbose = FALSE, progress = FALSE)
+speeches <- speeches[[subset(summary(speeches), size >= 50)$name]]
+```
+
+```{r, echo = FALSE}
+df_list <- lapply(seq_len(length(speeches)),
+  function(i) data.frame(
+    as.fulltexttable(speeches[[i]], headline = unname(name(speeches[[i]])), display = "none", name = name(name(speeches[[i]]))),
+    subcorpus_id = unname(name(speeches[[i]])))
+  )
+df <- do.call(rbind, df_list)
+```
+
+```{r, eval = TRUE, echo = FALSE}
+library(crosstalk)
+sd <- crosstalk::SharedData$new(df, ~subcorpus_id, group = "fulltext")
+```
+
+```{r, echo = FALSE}
+speeches_table <- data.frame(name = names(speeches))
+dt_cross <- crosstalk::SharedData$new(speeches_table, ~name, group = "fulltext")
+
+y <- bscols(
+  widths = c(5,NA),
+  DT::datatable(
+    dt_cross,
+    options = list(lengthChange = TRUE, pageLength = 8L, pagingType = "simple", dom = "tp"),
+    rownames = NULL, width = "100%", selection = "single"
+  ),
+  fulltext(sd, width = "100%", box = FALSE)
+)
+crosstalk_html <- file.path(getwd(), "crosstalk.html")
+htmltools::save_html(y, file = crosstalk_html, background = "white",  libdir = "lib")
+```
+
+<iframe src = "crosstalk.html" frameborder="0" scrolling="no" onload="resizeIframe(this)" padding="0em !important" margin-left="0 !important"></iframe>
+
+

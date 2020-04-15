@@ -33,7 +33,10 @@ ftxt_list <- cut(1:length(emma), c(1, grep("^\\s*$", emma), length(emma))) %>%
 
 
 ```{r, eval = TRUE, echo = FALSE}
-fulltext(ftxt_list[[1]])
+ftxt_list[[1]] %>%
+  as.fulltexttable(headline = "Emma") %>%
+  highlight(pink = "Emma", lightblue = "Knightley") %>%
+  fulltext()
 ```
 
 
