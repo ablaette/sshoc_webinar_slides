@@ -15,16 +15,17 @@ class: center, middle, inverse, title-slide
 
 # Quanlify with ease: Combining quantitative and qualitative corpus analysis
 ### Andreas Blaette
-### April 13, 2020 (SSHOC webinar #2)
+### SSHOC Webinar | April 13, 2020
 
 ---
 
 
 
 
-# Corpora everywhere. 
 
-## But where do we stand?
+# Corpus analysis: An emerging field. 
+
+## What are the challenges?
 
 --
 
@@ -41,7 +42,7 @@ But ...
 
 --
 
-* Tools for processing text that scale well are lacking
+* Tools for processing text that scale well are just emerging
 
 --
 
@@ -53,154 +54,98 @@ But ...
 
 --
 
-* __Integration of quantitative and qualitative approaches to text is an unfulfilled promise__
-
----
-background-image: url(img/Bergbau_Sabine_Wahlen.jpg)
-background-size: cover
-class: nobackground, inverse
-
-# PolMine Project
-## Data and Code for Corpus Analysis
-
----
-
-# www.polmine.de
-
-## The PolMine Project
-
---
-
-- __Research__&lt;/br&gt;
-  On migration &amp; integration policy: MigTex, MIDEM, PopParl
-
---
-- __Data__&lt;/br&gt;
-  Corpora of plenary protocols, Newspaper articles, ...
-
---
-- __Code__&lt;/br&gt;
-  open source R packages for text analysis, at CRAN &amp; GitHub
-
---
-- __Tutorials__&lt;/br&gt;
-  Using Corpora in Social Science Research / UCSSR
-
---
-- __Centre__&lt;/br&gt;
-  CLARIN Centre category C, prospectively part of NFDI
-
-&lt;br/&gt;
---
-_Learn more: www.polmine.de_
-
----
-
-# The hacky days shall be over
-
-## Wrapping consolidated code into R packages
-
---
-
-### Core packages published at CRAN
-
-- *polmineR*: Wlementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
-- *RcppCWB*: R Wrapper for the C Code of the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
-- *cwbtools*: Tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
-
---
-
-### A toolchain for corpus preparation
-
-- *frapp*: Framework for Parsing Plenary Protocols
-- *bignlp*: Fast NLP processing for big corpora (interfacing to Stanford CoreNLP)
-- *biglda*: Fast LDA topic modelling (interfacing to MALLET)
-- *ctk*: Corpus toolkit (misc functionality for corpus preparation)
-
---
-
-Ensuring quality: Continuous integration (CI), moving to test-driven development, improving code coverage 
-
-???
-
-### Why R?
-
-- the most common programming language in the social sciences
-- comprehensive availability of statistical methods
-- great visualisation capabilities
-- usability: RStudio as IDE
-- reproducible research: R Markdown notebooks
-
-### Why the Corpus Workbench (CWB)?
-
-- a classic toolset for corpus analysis
-- indexing and compression of corpora =&gt; performance
-- powerful and versatile syntax of the Corpus Query Processor (CQP)
-- permissive license (GPL)
+* Integration of quantitative and qualitative approaches to text is technically difficulat
 
 
 
 ---
 
-# Towards a data-rich future
+# The PolMine Project (www.polmine.de)
 
-### Corpora of Plenary Protocols
+##  Research - Data - Code - Tutorials - Centre
+
+--
+
+### Corpora
 
 - **GermaParl**: Corpus of the German Bundestag, regional parliaments ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3742113.svg)
 - **UNGA** Verbatim Records of the United Nations General Assembly ![](https://zenodo.org/badge/DOI/10.5281/zenodo.3748858.svg)
-- **ParisParl** (French Assemblé Nationale) / **AustroParl** (Austria's Nationalrat) / **TweedeKamer** (Dutch Tweede Kamer Staten-General)
 - **MigParl**: Debates on migration and integration in Germany's Regional Parliaments
-
-*cp. ParlaCLARIN-Workshops, work towards a TEI-style standardization*
-
---
-
-### Other Corpora
-
 - **MigPress**: Corpus of reports on migration and integration in Süddeutsche Zeitung und Frankfurter Allgemeine Zeitung (2000-2019)
 
 --
 
-### Dissemination
+*(Toolchain for corpus preparation: **frapp**, **bignlp**, **biglda**, **trickypdf**)*
 
-- Git repositories for TEI-XML
-- Open science repository Zenodo for indexed corpora
+--
+
+### Packages for corpus analysis
+
+- **polmineR**: Wlementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
+- **RcppCWB**: R Wrapper for the C Code of the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
+- **cwbtools**: Tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
 
 ---
 
-# polmineR - the People's Corpus Miner 
+# Things are evolving. 
+
+## But where do we stand?
 
 --
 
-- Prerequisites: 
-  - Any kind of computer that still has keys (Windows, Linux, macOS)
-  - Installation of R/RStudio
+* Acquisition of NLP techniques in the social sciences &amp; humanities:&lt;br/&gt;
+  _Working with large-scale, linguistically annotated corpora_
 
 --
 
-- Three lines of code will get you polmineR and GermaParl (or any other corpus)
-
-
-```r
-install.packages("polmineR")
-install.packages("GermaParl") # includes small sample dataset
-GermaParl::germaparl_download_corpus() # get the full corpus (1 GB)
-```
+* Tools for processing text that scale well are just emerging:&lt;br/&gt;
+  _Packages such as bignlp, biglda_
 
 --
 
-- Start your inquiry
+* Availability of data for replication is missing:&lt;br/&gt;
+  _Depositing data with Zenodo (or other open science repositories)_
+
+--
+
+* Reproducibility of data (getting FAIRER):&lt;br/&gt;
+  _100% reproducibility of data_
+  
+
+--
+
+* &lt;span style="background-color:yellow"&gt;Integration of quantitative and qualitative approaches to text is an unfulfilled promise&lt;/span&gt;
 
 
-```r
-library(polmineR)
-count("GERMAPARL", query = "Europa")
-kwic("GERMAPARL", query = "Europa")
-```
 
-- Installation options: Run R, RStudio, OpenCPU on server (remote corpus access)
+---
+
+# Assumption, Problem, Vision and Plan
+
+**Assumption:** The validity of our research with large-scale corpora depends on our ability to combine the quantitative and the qualitative analysis of textual data. 
+
+--
+
+**Problem:** It takes a software engineer to implement an integrated environment for the quantitative and qualitative analysis of text. You need funding to entertain the cooperation with a software engineer. Funding ends. Solutions are not sustainable.
+
+--
+
+**Vision:** Wouldn't it be great to have an open source, modular toolset that can flexibly be used by ordinary computational social scientists to implement "quanlitative" workflows?
+
+--
+
+**Plan of this Talk**
+
+1. Theory is Code - The "Quanlification" Frontier
+2. Quanlification as a Matter of Design
+3. Implementing Quanlifictation 
+4. Work Ahead - Getting Things Done
+5. Discussion
 
 
+???
+
+We do not want to get rid of the collaboration with the guys from computer science. But interdisciplinary constellations should be based on a demand of what they find interesting. Usually, that's not writing GUIs for other people.
 
 ---
 
@@ -209,7 +154,7 @@ background-size: cover
 class: nobackground, inverse
 
 # Theory is Code
-## The "quanlification" frontier
+## The "Quanlification" Frontier
 
 ---
 
@@ -219,6 +164,7 @@ class: nobackground, inverse
 
 - "[…] the trouble with close reading […] is that it necessarily depends on an extremely small canon. […] what we really need is a little pact with the devil: we know how to read texts, so now let‘s learn how not to read them. Distant reading, where distance, let me repeat is, is a condition of knowledge. It allows you to focus on units that are much smaller or much larger than the text: devices, themes, types – or genres and systems. And if, between the very small and the very large, the text itself disappears, well, this is one of the cases where one can justifiably say, Less is more.“ (Moretti [2000] 2013: 49)
 
+--
 
 ## The "text as data" movement:
 
@@ -266,6 +212,20 @@ class: nobackground, inverse
 
 ---
 
+background-image: url(img/clipart1299822.png)
+background-size: cover
+class: nobackground, inverse
+
+# A Matter of Design
+## Data Structures Matter
+
+---
+
+# Three-Tier Architecture: C &amp; R &amp; More
+
+![](./img/polmineR_architecture.png)
+---
+
 # Verbs and nouns for corpus analysis
 
 ## polmineR: A basic vocabulary for quanlification
@@ -289,13 +249,47 @@ class: nobackground, inverse
   - full text (of a subcorpus): *get_token_stream()*, *as.markdown()*, *as.html()*, *read()*
 
 ---
+
+# polmineR - the People's Corpus Miner 
+
+--
+
+- Prerequisites: 
+  - Any kind of computer that still has keys (Windows, Linux, macOS)
+  - Installation of R/RStudio
+
+--
+
+- Three lines of code will get you polmineR and GermaParl (or any other corpus)
+
+
+```r
+install.packages("polmineR")
+install.packages("GermaParl") # includes small sample dataset
+GermaParl::germaparl_download_corpus() # get the full corpus (1 GB)
+```
+
+--
+
+- Start your inquiry
+
+
+```r
+library(polmineR)
+count("GERMAPARL", query = "Europa")
+kwic("GERMAPARL", query = "Europa")
+```
+
+- Installation options: Local install, or R, RStudio, OpenCPU on server (remote corpus access)
+
+---
 background-image: url(img/Nerd.jpg)
 background-size: cover
 class: nobackground, inverse
 
 
 # Implementing Quanlification 
-## Let's Get Things Done
+## The Look and Feel
 
 ---
 
@@ -331,7 +325,7 @@ class: nobackground, inverse
 
 ## Implementation
 
-- polmineR level: Implementation of methods `highlight()` and `tooltips()`
+- polmineR package: Implementation of methods `highlight()` and `tooltips()`
 - GUI: Enrich input data for htmlwidgets and amend CSS
 
 ## Demonstration
@@ -393,22 +387,72 @@ anno &lt;- annotate(data)
 
 ---
 
-# The Making of a Quanlification Toolset
+background-image: url(img/318_3.jpg)
+background-size: cover
+class: nobackground, inverse
+
+# Work Ahead
+## Getting Things Done
+
+---
+
+# The Nature of the Beast
+
+## A modular toolset (not a framework)
+
+- turn whatever is already there into tools for quanlification
+
+- set of htmlwidgets (crosstalk enabled) as elements
+
+- shiny modules, shiny apps, and shiny gadgets
+
+- flexdashboards
+
+- Rmarkdown templates (for documents, slides, flexdashboards)
+
+
+--
+
+## Skills required
+
+- Know when to use what (presenting research results is different from research)
+
+- It will take sound documentation, tutorials, recipes to illuminate the toolset!
+
+---
+
+# A Suite of R Packages for Quanlification
 
 ## Conscious Uncoupling and Modularization
 
-- [*fulltext*](https://github.com/PolMine/fulltext):&lt;br/&gt;Toolset to generate fulltext display from corpus data
+- [*fulltext*](https://github.com/PolMine/fulltext): Toolset to generate fulltext display from corpus data&lt;br/&gt;
+  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis-CI Build Status](https://api.travis-ci.org/PolMine/fulltext.svg?branch=master)](https://travis-ci.org/PolMine/fulltext)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/PolMine/fulltext?branch=master&amp;svg=true)](https://ci.appveyor.com/project/PolMine/fulltext)
+[![codecov](https://codecov.io/gh/PolMine/fulltext/branch/master/graph/badge.svg)](https://codecov.io/gh/PolMine/fulltext/branch/master)
 
-- [*gradget*](https://github.com/PolMine/gradget):&lt;br/&gt;Graph annotation widget
+- [*gradget*](https://github.com/PolMine/gradget): Graph annotation widget&lt;br/&gt;
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis-CI Build Status](https://api.travis-ci.org/PolMine/gradget.svg?branch=dev)](https://travis-ci.org/PolMine/gradget)
 
-- [*annolite*](https://github.com/PolMine/annolite):&lt;br/&gt;Leightweight Fulltext Display and Annotation Tools
+- [*annolite*](https://github.com/PolMine/annolite): Leightweight Fulltext Display and Annotation Tools&lt;br/&gt;
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis-CI Build Status](https://api.travis-ci.org/PolMine/annolite.svg?branch=dev)](https://travis-ci.org/PolMine/annolite)
+[![codecov](https://codecov.io/gh/PolMine/annolite/branch/dev/graph/badge.svg)](https://codecov.io/gh/PolMine/annolite/branch/dev)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/PolMine/annolite?branch=dev&amp;svg=true)](https://ci.appveyor.com/project/PolMine/annolite)
 
-- [*topicanalysis*](https://github.com/PolMine/topicanalysis):&lt;br/&gt;Auxiliary functions for topicmodelling.
+- [*topicanalysis*](https://github.com/PolMine/topicanalysis): Auxiliary functions for topicmodelling.&lt;br/&gt;
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Travis-CI Build Status](https://api.travis-ci.org/PolMine/topicanalysis.svg?branch=master)](https://travis-ci.org/PolMine/topicanalysis)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/PolMine/topicanalysis?branch=master&amp;svg=true)](https://ci.appveyor.com/project/PolMine/topicanalysis)
+[![codecov](https://codecov.io/gh/PolMine/topicanalysis/branch/master/graph/badge.svg)](https://codecov.io/gh/PolMine/topicanalysis/branch/master)
 
-- [*quanlify*](https://github.com/PolMine/quanlify):&lt;br&gt;Toolset for the qualitative validation of quantitative text analysis
+- [*quanlify*](https://github.com/PolMine/quanlify):Toolset for the qualitative validation of quantitative text analysis&lt;br/&gt;
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 **Beware! All of this is experimental!**
-
 
 ---
 
@@ -418,23 +462,17 @@ anno &lt;- annotate(data)
 
 - Offer a very flexible set of tools to implement all kinds of workflows that entail distant and close reading with minimal cost
 - A **l**eightweight **i**nfrastructure for the **qu**anlitat**i**ve analysis of text **d**ata ("liquid")
-
---
-
-## Inspiration from the Unix philosophy
-
-- keep it simple, stupid (KISS)
-- parsimony (leave as much as possible to existing libraries)
-- modularity (identify independent building blocks and develop them soundly)
+- Towards a people's framework for quanlification
 
 --
 
 ## Discussion Points
 
 - Alternative approaches, relevant previous work
-- How much GUI is needed?
-- Toolset of framework?
-- Towards a people's framework for quanlification?
+- Balance between GUI and console?
+- Will there be users?
+- How to build a community?
+- Role for ESOC/SSHOC?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

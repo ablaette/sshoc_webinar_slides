@@ -1,0 +1,79 @@
+---
+title: "The 'fulltext' htmlwidget"
+author: "Andreas Blätte (andreas.blaette@uni-due.de)"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, eval = TRUE, echo = FALSE}
+library(janeaustenr)
+library(tokenizers)
+library(fulltext)
+library(polmineR)
+library(magrittr)
+library(data.table)
+```
+
+## Embed fulltext in document
+
+```{r, eval = TRUE, echo = FALSE}
+ftxt_list <- cut(1:length(emma), c(1, grep("^\\s*$", emma), length(emma))) %>%
+  split(janeaustenr::emma, f = .) %>%
+  lapply(paste, collapse = " ") %>%
+  tokenizers::tokenize_words(lowercase = FALSE, strip_punct = FALSE) %>%
+  as.fulltexttable() %>% 
+  split(ftxt, column = "tag_before", regex = "<para") %>%
+  retag(regex = "CHAPTER", old = "para", new = "h2") %>%
+  as.fulltexttable() %>%
+  split(column = "token", regex = "CHAPTER") %>%
+  rename(name = sprintf("Chapter %d", seq_along(.)))
+```
+
+
+```{r, eval = TRUE, echo = FALSE}
+fulltext(ftxt_list[[1]])
+```
+
+
+## Crosstalk: Interaction between table and fulltext output
+
+```{r, eval = TRUE, echo = FALSE}
+ftxt_list <- lapply(
+  setNames(names(ftxt_list), names(ftxt_list)),
+  function(chapter) data.frame(ftxt_list[[chapter]], chapter = chapter)
+)
+ftxt_list <- ftxt_list[1:5]
+```
+
+
+
+```{r, echo = FALSE}
+library(crosstalk)
+austen_chapters <- do.call(rbind, ftxt_list)
+austen_chapters[["tag_before"]] <- gsub("display:block", "display:none", austen_chapters[["tag_before"]])
+sd <- crosstalk::SharedData$new(austen_chapters, ~chapter, group = "fulltext")
+chapters_table <- data.frame(chapter = unique(austen_chapters$chapter))
+chapters_table_sd <- crosstalk::SharedData$new(chapters_table, ~chapter, group = "fulltext")
+
+y <- bscols(
+  # widths = c(NA,NA),
+  DT::datatable(
+    chapters_table_sd,
+    options = list(lengthChange = TRUE, pageLength = 8L, pagingType = "simple", dom = "tp"),
+    rownames = NULL, width = "100%", selection = "single"
+  ),
+  fulltext(sd, width = "100%", box = TRUE)
+)
+
+```
+
+
+```{r, echo = FALSE}
+y
+```
+
+## Want to know more?
+
+See the [vignette of the fulltext package](https://polmine.github.io/fulltext/articles/vignette.html) for the code behind these examples.
