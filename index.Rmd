@@ -322,7 +322,7 @@ class: nobackground, inverse
 
 ## Demo
 
-- Validating sentiment analyses with interactive KWIC tables [-> example](file:///Users/andreasblaette/Lab/github/ValidationWorkflows/docs/sentiment_analysis.html#17)
+- Validating sentiment analyses with interactive KWIC tables [-> example](https://polmine.github.io/ValidationWorkflows/sentiment_analysis.html#17)
 - Evaluate topic models with flexdashboard [-> example](https://polmine.github.io/gallery/topicmodel_flexdashboard.html)
 - Understanding the data behind cooccurrence graphs [-> example](./gallery/unga_gradget.html)
 
@@ -349,7 +349,7 @@ class: nobackground, inverse
 
 ## Demo
 
-- Annotate any class inheriting from the `textstat` class (i.e. tables - kwic, cooccurrences, features)
+- Annotate any class inheriting from the `textstat` class (i.e. tables - kwic, cooccurrences, features) [-> example](http://34.209.39.169:8787)
 - Simple text annotation with the `annolite` package
 - Annotate cooccurrence graphs [-> example](./gallery/unga_gradget.html)
 
