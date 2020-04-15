@@ -300,8 +300,8 @@ class: nobackground, inverse
 
 ## Demo
 
-- HTML documents with scrollable fulltext [-> example](./gallery/fulltext_doc.html)
-- Slides with `fulltext` htmlwidget [-> example](./gallery/fulltext_slides.html)
+- HTML documents with scrollable fulltext [-> example](https://ablaette.github.io/sshoc_webinar_slides/gallery/fulltext_doc.html)
+- Slides with `fulltext` htmlwidget [-> example](https://ablaette.github.io/sshoc_webinar_slides/gallery/fulltext_slides.html)
 - polmineR shiny App [-> example](http://34.209.39.169:3838/polmineR/)
 
 
@@ -324,7 +324,7 @@ class: nobackground, inverse
 
 - Validating sentiment analyses with interactive KWIC tables [-> example](https://polmine.github.io/ValidationWorkflows/sentiment_analysis.html#17)
 - Evaluate topic models with flexdashboard [-> example](https://polmine.github.io/gallery/topicmodel_flexdashboard.html)
-- Understanding the data behind cooccurrence graphs [-> example](./gallery/unga_gradget.html)
+- Understanding the data behind cooccurrence graphs [-> example](https://ablaette.github.io/sshoc_webinar_slides/gallery/unga_gradget.html)
 
 ---
 
@@ -351,7 +351,7 @@ class: nobackground, inverse
 
 - Annotate any class inheriting from the `textstat` class (i.e. tables - kwic, cooccurrences, features) [-> example](http://34.209.39.169:8787)
 - Simple text annotation with the `annolite` package
-- Annotate cooccurrence graphs [-> example](./gallery/unga_gradget.html)
+- Annotate cooccurrence graphs [-> example](https://ablaette.github.io/sshoc_webinar_slides/gallery/unga_gradget.html)
 
 ---
 
