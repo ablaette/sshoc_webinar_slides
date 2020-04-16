@@ -62,3 +62,13 @@ h1 {
   width: 2500px;
   height: 180px
 }
+
+.attribution{
+  padding-left: 650px;
+  font-size: 15px;
+  color: #efefef;
+}
+
+.attribution a {
+  color: #efefef;
+}

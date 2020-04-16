@@ -147,8 +147,11 @@ background-image: url(img/Le_Penseur_min.jpg)
 background-size: cover
 class: nobackground, inverse
 
+.attribution[Photo: [Daniel Stockman](https://www.flickr.com/photos/84989911@N00/4694248310)]
+
 # Theory is Code
 ## The "Quanlification" Frontier
+
 
 ---
 
@@ -209,6 +212,8 @@ class: nobackground, inverse
 background-image: url(img/clipart1299822.png)
 background-size: cover
 class: nobackground, inverse
+
+.attribution[[www.clipartmax.com](https://www.clipartmax.com/middle/m2i8N4N4K9m2H7b1_room-and-pillar-mining-room-and-pillar-mining/)]
 
 # A Matter of Design
 ## Data Structures Matter
@@ -386,6 +391,8 @@ background-image: url(img/318_3.jpg)
 background-size: cover
 class: nobackground, inverse
 
+.attribution[[www.runder-tisch.info](http://www.runder-tisch.info/bergleute.php?bergleute=2)]
+
 # Work Ahead
 ## Getting Things Done
 
@@ -467,4 +474,4 @@ class: nobackground, inverse
 - Balance between GUI and console?
 - Will there be users?
 - How to build a community?
-- Role for ESOC/SSHOC?
+- Role for EOSC/SSHOC?
