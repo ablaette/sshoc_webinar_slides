@@ -1,7 +1,7 @@
 ---
 title: "Quanlify with ease: Combining quantitative and qualitative corpus analysis"
 author: "Andreas Blaette"
-date: "SSHOC Webinar | April 13, 2020"
+date: "SSHOC Webinar | April 16, 2020"
 output: 
   xaringan::moon_reader:
     css: [default, metropolis, robot-fonts, './css/polminify.css']
@@ -75,7 +75,7 @@ But ...
 
 ### Packages for corpus analysis
 
-- **polmineR**: Wlementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
+- **polmineR**: Elementary vocabulary for corpus analysis ![](https://www.r-pkg.org/badges/version/polmineR)
 - **RcppCWB**: R Wrapper for the C Code of the Corpus Workbench (using C++/Rcpp) ![](https://www.r-pkg.org/badges/version/RcppCWB)
 - **cwbtools**: Tools to create and manage CWB indexed corpora ![](https://www.r-pkg.org/badges/version/cwbtools)
 
@@ -294,7 +294,7 @@ class: nobackground, inverse
 
 ## Problem Statement
 
-- **Read Anything:** Cooccurrences, concordances, subcorpora, topic models - there are many different scenarios when you 
+- **Read Anything:** Cooccurrences, concordances, subcorpora, topic models - you want to contextualize all of it
 - **Read Anywhere:** Include fulltext output into (html) documents and slides, and in GUIs
 
 
@@ -317,7 +317,7 @@ class: nobackground, inverse
 ## Problem Statement
 
 - **Highlighting with multiple colors:** The statistical analysis of text yields variable dictionaries with word weights - visualising multiple dictionaries at the same time will help to gather the semantic sense of numeric analyses
-- **Tooltipping :** Colors alone may be misleading. Show numeric information on demand
+- **Tooltipping:** Colors alone may be misleading. Show numeric information on demand
 
 
 ## Implementation
